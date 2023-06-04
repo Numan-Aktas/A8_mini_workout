@@ -4,6 +4,8 @@ Bu proje, A8 Mini Gimbal'ın CUAV 5+ otopilot kartı ile kontrolünü, kablolar�
 Ethernet portu kullanılarak NVIDIA Xavier NX ile bağlantı kurularak Python kodu ile kontrol ve görüntü alımını açıklamaktadır.
 
 
+
+
 #Amaç
 
 Bu projenin amacı, A8 Mini Gimbal'ı profesyonel görüntüleme ve izleme uygulamaları için hassas bir şekilde kontrol etmektir.

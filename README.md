@@ -70,8 +70,7 @@ import cv2
 kamera_url = 'rtsp://192.168.144.25:8554/main.264'
 
 # Video akışını almak için VideoCapture
-video_port = 0
-video = cv2.VideoCapture(video_port)
+video = cv2.VideoCapture(kamera_url)
 
 while True:
     ret, frame = video.cap()
@@ -95,6 +94,28 @@ Ayrıca daha kısa bir kablo kullanmak ve doğrudan ethernet girişine dönüşt
 #### Mini HDMI üzerinden görüntü alma 
 Ethernet üzerinden cihazın şuanki(06.2023) sürümünde maksimum 720p 30 fps alınabilir. Bu değer ilerleyen zamanlarda değişebilir.
 HDMI üzerinden doğrudan veya HDMI VIDEOCAPTURE cihazlarıyla usb veya hdmi üzerinden görüntü alınabilir.
+```
+import cv2
+
+# Video akışını almak için VideoCapture
+video_port = 0
+video = cv2.VideoCapture(video_port)
+
+while True:
+    ret, frame = video.cap()
+
+    # Görüntüyü işleyin veya gösterin
+    cv2.imshow('Kamera Görüntüsü',frame)
+    
+    # 'q' tuşuna basarak döngüden çıkın
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+        
+# Bağlantıyı ve pencereleri serbest bırakın
+video.release()
+cv2.destroyAllWindows()
+
+```
 
 ### SDK Üzerinden Python Kodu ile Kontrol 
 

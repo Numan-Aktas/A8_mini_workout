@@ -19,19 +19,28 @@ CUAV 5+ otopilot kartı ve NVIDIA Xavier NX kullanarak, gimbal kontrolünü opti
 - Python kodu ile gimbal kontrolü ve görüntü alımının gerçekleştirilmesi.
 
 
-### CUAV V5+ İLE KONTROLÜ
-
-CUAV v5+ Otopilot Kartı ile Kontrol
+### CUAV v5+ Otopilot Kartı ile Kontrol
 
 CUAV v5+ otopilot kartıyla A8 Mini Gimbal'ı kontrol etmek için doğru bir kablolama gerekmektedir. 
 Aşağıdaki resimde gösterildiği gibi pinlerin doğru şekilde bağlanmasıyla seri bağlantı sağlanır:
-
+![
 
 Kontrol için ayrıca uçuş kontrolcüsü üzerinde ayarlanması gereken parametreler bulunmaktadır. Bu parametreleri,
 GCS (Ground Control Station) üzerinden yapabilirsiniz. Gerekli parametreler şunlardır:
 
-Parametre 1: ...
-Parametre 2: ...
-Parametre 3: ...
-...
-Bu parametreleri doğru bir şekilde ayarladığınızdan emin olun, çünkü bu, A8 Mini Gimbal'ın doğru ve istenen şekilde kontrol edilmesini sağlayacaktır.
+SERIALX_PROTOCOL = 8   SToRM32 Gimbal Serial\
+SERIALX_BAUD = 115     for 115200 bps\
+MNT1_TYPE = 8          Siyi \
+CAM_TRIGG_TYPE = 3     Mount Siyi \
+CAM1_TYPE = 4          Mount Siyi \
+Parametreleri kaydedip  otopilotu yeniden başlatın.
+
+RCX_OPTION = 213 Pitch Açı Kontrol \
+RCX_OPTION = 214 Yaw Açı Kontrol 
+
+RCX_OPTION = 166 Kamera Video Kayıt\
+RCX_OPTION = 167 Kamera Zoom\
+RCX_OPTION = 168 Kamera Manual Odaklanma\
+RCX_OPTION = 169 Kamera Otamatik Odaklanma
+
+Warningğru bir şekilde ayarladığınızdan emin olun, çünkü bu, A8 Mini Gimbal'ın doğru ve istenen şekilde kontrol edilmesini sağlayacaktır.

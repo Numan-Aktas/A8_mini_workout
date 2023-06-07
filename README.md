@@ -98,4 +98,5 @@ HDMI üzerinden doğrudan veya HDMI VIDEOCAPTURE cihazlarıyla usb veya hdmi üz
 
 ### SDK Üzerinden Python Kodu ile Kontrol 
 
-dsfsdfds
+Repodaki A8_mini_sdk dosyası içindeki siyi_sdk.py dosyasının içindeki fonksiyonları kullanarak kontroller ve çeşitli parametrelerin alınması ve yazılması gerçekleştirilebilir.
+##### Not: kamera kontrolleri baş aşağı olucak şekilde çalışmaktadır baş yukarı kullanmak için ekstra değerler eklenmelidir.

@@ -55,7 +55,7 @@ RCX_OPTION = 169 Kamera Otamatik Odaklanma
 Parametrelerin doğru bir şekilde ayarladığınızdan emin olun, çünkü bu, A8 Mini Gimbal'ın doğru ve istenen şekilde kontrol edilmesini sağlayacaktır.
 ### Görüntü Alma
 #### Ethernet üzerinden görüntü alma
-Ethernet üzerinden cihazın şuanki(06.2023) sürümünde maksimum 720p 30 fps alınabilir. Bu değer ilerleyen zamanlarda değişebilir.
+Ethernet üzerinden cihazın şuanki(06.2023) sürümünde maksimum 720p 30 fps alınabilir. Bu değer ilerleyen zamanlarda üretici firmanın yapacağı yazılım güncellemeleri ile değişebilir.
 Resimdeki kabloyu kullanarak kamera ve cihaz arasında Ethernet bağlantısı kurulabilir.
 
 ![Ethernet_cable](https://github.com/Numan-Aktas/A8_mini_workout/blob/main/images/Ethernet_cable.png)
@@ -92,7 +92,7 @@ Ayrıca daha kısa bir kablo kullanmak ve doğrudan ethernet girişine dönüşt
 ![ethernet_to_pin](https://github.com/Numan-Aktas/A8_mini_workout/blob/main/images/ethernet_to_pin.png)
 
 #### Mini HDMI üzerinden görüntü alma 
-Ethernet üzerinden cihazın şuanki(06.2023) sürümünde maksimum 720p 30 fps alınabilir. Bu değer ilerleyen zamanlarda değişebilir.
+Ethernet üzerinden cihazın şuanki(06.2023) sürümünde maksimum 1080p 30 fps alınabilir. Bu değer ilerleyen zamanlarda üretici firmanın yapacağı yazılım güncellemeleri ile değişebilir.
 HDMI üzerinden doğrudan veya HDMI VIDEOCAPTURE cihazlarıyla usb veya hdmi üzerinden görüntü alınabilir.
 ```
 import cv2
@@ -116,6 +116,7 @@ video.release()
 cv2.destroyAllWindows()
 
 ```
+##### Not: Linux tabanlı sistemlerde usb portundan veri okunurken fps kaybı yaşanmaktadır. Testlerde 1080p 5 fps alınmıştır. Sorunun çözümü ilerleyen zamanlarda paylaşılabilir :)
 
 ### SDK Üzerinden Python Kodu ile Kontrol 
 

@@ -10,10 +10,10 @@ CUAV 5+ otopilot kartı ve NVIDIA Xavier NX kullanarak, gimbal kontrolünü opti
 
 
 ## İçerik
-- Kablolama pin eşlemeleri ve bağlantıların doğru şekilde yapılması.
-- CUAV 5+ otopilot kartı kullanarak A8 Mini Gimbal'ın seri bağlantıyla kontrol edilmesi.
-- Ethernet portu kullanarak NVIDIA Xavier NX ile A8 Mini Gimbal arasında bağlantı kurulması.
-- Python kodu ile gimbal kontrolü ve görüntü alımının gerçekleştirilmesi.
+- Kablolama pin eşlemeleri ve bağlantıların doğru şekilde yapılması
+- CUAV 5+ otopilot kartı kullanarak A8 Mini Gimbal'ın seri bağlantıyla kontrol edilmesi
+- Ethernet portu  veya mini HDMI portu kullanarak PC veya NVIDIA Xavier NX ile A8 Mini Gimbaldan görüntü alımının gerçekleştirilmesi
+- Python kodu ile gimbal kontrolü
 
 ### A8 Mini Gimbal Besleme
 ![a8_mini_feed](https://github.com/Numan-Aktas/A8_mini_workout/blob/main/images/a8_mini_fee.png)
@@ -36,7 +36,7 @@ Aşağıdaki resimde gösterildiği gibi pinlerin doğru şekilde bağlanmasıyl
 
 Kontrol için ayrıca uçuş kontrolcüsü üzerinde ayarlanması gereken parametreler bulunmaktadır. Bu parametreleri,
 GCS (Ground Control Station) üzerinden yapabilirsiniz. Gerekli parametreler şunlardır:
-#### Not: Bu gimballer için destek, ArduPilot 4.3.1 ve (ve üstü) versiyonlar için mevcuttur.
+##### Not: Bu gimballer için destek, ArduPilot 4.3.1 ve (ve üstü) versiyonlar için mevcuttur.
 SERIALX_PROTOCOL = 8   SToRM32 Gimbal Serial\
 SERIALX_BAUD = 115     for 115200 bps\
 MNT1_TYPE = 8          Siyi \
@@ -53,3 +53,42 @@ RCX_OPTION = 168 Kamera Manual Odaklanma\
 RCX_OPTION = 169 Kamera Otamatik Odaklanma
 
 Parametrelerin doğru bir şekilde ayarladığınızdan emin olun, çünkü bu, A8 Mini Gimbal'ın doğru ve istenen şekilde kontrol edilmesini sağlayacaktır.
+### Görüntü Alma
+#### Ethernet üzerinden görüntü alma
+Resimdeki kabloyu kullanarak kamera ve cihaz arasında Ethernet bağlantısı kurulabilir.
+
+![Ethernet_cable](https://github.com/Numan-Aktas/A8_mini_workout/blob/main/images/Ethernet_cable.png)
+
+Bağlanmak için statik IP ayarlanmalıdır. ayarlanılan IP'nin kamera IP'sini kapsaması ve aynı olmaması gerekmektedir.
+
+![IPV4_ayar](https://github.com/Numan-Aktas/A8_mini_workout/blob/main/images/IPV4_ayar%C4%B1.png)
+
+Statik IP ayarlandıktan sonra opencv gibi kütüphaneler kullanılarak cihaz üzerinden görüntü alabilirsiniz. 
+```
+import cv2
+kamera_url = 'rtsp://192.168.144.25:8554/main.264'
+
+# Video akışını almak için VideoCapture
+video_port = 0
+video = cv2.VideoCapture(video_port)
+
+while True:
+    ret, frame = video.cap()
+
+    # Görüntüyü işleyin veya gösterin
+    cv2.imshow('Kamera Görüntüsü',frame)
+    
+    # 'q' tuşuna basarak döngüden çıkın
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+        
+# Bağlantıyı ve pencereleri serbest bırakın
+video.release()
+cv2.destroyAllWindows()
+
+```
+Ayrıca daha kısa bir kablo kullanmak ve doğrudan ethernet girişine dönüştürmek için aşağıdaki kablolama yapılabilir.
+
+![ethernet_to_pin](https://github.com/Numan-Aktas/A8_mini_workout/blob/main/images/ethernet_to_pin.png)
+
+#### Mini HDMI üzerinden görüntü alma 

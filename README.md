@@ -15,12 +15,23 @@ CUAV 5+ otopilot kartı ve NVIDIA Xavier NX kullanarak, gimbal kontrolünü opti
 - Ethernet portu kullanarak NVIDIA Xavier NX ile A8 Mini Gimbal arasında bağlantı kurulması.
 - Python kodu ile gimbal kontrolü ve görüntü alımının gerçekleştirilmesi.
 
-## A8 Mini Gimbal Besleme
+### A8 Mini Gimbal Besleme
+![a8_mini_feed](https://github.com/Numan-Aktas/A8_mini_workout/blob/main/images/a8_mini_fee.png)
+
+A8 Mini beslenirken 11-16V arasında gerilim ve 0,5-1 Amper Akım kaynağı gereklidir.
+Herhangi bir güç kaynağı ile beslenebilir. Ayrıca daha verimli çalışması için orta gerilim değerleri seçilebilir. Güç verdikten sonra A8 mini ısınmaya başlayacaktır bu durum tamamen normal. Yaklaşık sıcaklığı 55 C olucaktır.
+### Firmware & Kalibrasyon & Ayarlar
+Firmware yüklemek ve diğer işlemleri yapmak için SIYI'nın kendi uygulaması olan SIYI PC Assistant yapılabilir.
+SIYI DRİVE: https://drive.google.com/drive/folders/1aSulEJW6OYt8UTtW0osgL20lkXcMuGxp
+
+![SIYIassistant_firmware](https://github.com/Numan-Aktas/A8_mini_workout/blob/main/images/SIYIassistant_firmware.png)
+![SIYIassistant_ayarlar](https://github.com/Numan-Aktas/A8_mini_workout/blob/main/images/SIYIassistant_ayarlar.png)
 
 ### CUAV v5+ Otopilot Kartı ile Kontrol
 
 CUAV v5+ otopilot kartıyla A8 Mini Gimbal'ı kontrol etmek için doğru bir kablolama gerekmektedir. 
 Aşağıdaki resimde gösterildiği gibi pinlerin doğru şekilde bağlanmasıyla seri bağlantı sağlanır:
+
 ![Pixhawk_pin](https://github.com/Numan-Aktas/A8_mini_workout/blob/main/images/Pixhawk_pin.png)
 
 Kontrol için ayrıca uçuş kontrolcüsü üzerinde ayarlanması gereken parametreler bulunmaktadır. Bu parametreleri,

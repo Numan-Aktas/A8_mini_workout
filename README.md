@@ -91,10 +91,3 @@ while True:
 video.release()
 cv2.destroyAllWindows()
 ```
-
-### Önemli Noktalar:
-- Tüm görsellerin doğru yüklendiğinden emin ol.
-- Statik IP adresi ve diğer yapılandırmaların projede kullanılan donanıma göre doğru olduğundan emin ol.
-- Projeyi başkalarına sunmadan önce kod örneklerini test et.
-
-Bu yapı, projenin profesyonel ve net bir şekilde anlaşılmasını sağlayacaktır.
